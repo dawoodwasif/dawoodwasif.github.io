@@ -1,445 +1,839 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dawood Wasif | PhD Researcher, Virginia Tech</title>
+  <meta name="description" content="Dawood Wasif | PhD student at Virginia Tech researching trustworthy AI, federated learning, and human-in-the-loop RL.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ðŸ”¬</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#FAF9F7;--bg-elevated:#FFFFFF;--bg-subtle:#F0EFEC;--bg-wash:#E8E7E3;
+      --text:#18181B;--text-secondary:#5A5A60;--text-tertiary:#8E8E96;
+      --accent:#2554E3;--accent-hover:#1A3FC0;--accent-bg:#EEF1FC;--accent-border:#C7D2F6;
+      --orange:#E4802A;--orange-bg:#FDF3EB;--green:#1A9E5C;--green-bg:#E8F8F0;
+      --border:#E4E3DF;--border-strong:#CCCBC5;
+      --shadow-sm:0 1px 3px rgba(0,0,0,0.04),0 1px 2px rgba(0,0,0,0.06);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.04);
+      --radius:12px;--radius-sm:8px;
+      --serif:'Newsreader',Georgia,serif;--sans:'Outfit',-apple-system,sans-serif;--mono:'JetBrains Mono',monospace;
+      --nav-h:64px;--max-w:1100px;
+    }
+    [data-theme="dark"]{
+      --bg:#111113;--bg-elevated:#1A1A1E;--bg-subtle:#222226;--bg-wash:#2A2A2F;
+      --text:#ECECEE;--text-secondary:#A0A0A8;--text-tertiary:#6E6E78;
+      --accent:#6B8AFF;--accent-hover:#8FA5FF;--accent-bg:#1E2240;--accent-border:#2E3660;
+      --orange:#F0963A;--orange-bg:#2A2018;--green:#34D47E;--green-bg:#142820;
+      --border:#2A2A2F;--border-strong:#3A3A42;
+      --shadow-sm:0 1px 3px rgba(0,0,0,0.2);--shadow-md:0 4px 16px rgba(0,0,0,0.3);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+24px)}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .35s,color .35s}
+    ::selection{background:var(--accent);color:#fff}
+    a{color:var(--accent);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--accent-hover)}
+    img{max-width:100%;display:block}
 
-  <title>Dawood Wasif</title>
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(20px) saturate(1.2);-webkit-backdrop-filter:blur(20px) saturate(1.2);border-bottom:1px solid var(--border);transition:background .35s,border-color .35s}
+    .nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h)}
+    .nav-brand{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-.02em;cursor:pointer}
+    .nav-tabs{display:flex;align-items:center;gap:0}
+    .nav-tab{padding:.5rem 1.1rem;font-size:.84rem;font-weight:500;color:var(--text-secondary);cursor:pointer;border:none;background:none;border-radius:var(--radius-sm);transition:all .2s;font-family:var(--sans);letter-spacing:.01em}
+    .nav-tab:hover{color:var(--text);background:var(--bg-subtle)}
+    .nav-tab.active{color:var(--accent);background:var(--accent-bg);font-weight:600}
+    .nav-actions{display:flex;align-items:center;gap:.75rem}
+    .theme-toggle{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:10px;background:var(--bg-elevated);cursor:pointer;transition:all .2s;color:var(--text-secondary)}
+    .theme-toggle:hover{border-color:var(--border-strong);color:var(--text);transform:scale(1.05)}
+    .theme-toggle svg{width:18px;height:18px}
+    .nav-cta-btn{padding:.45rem 1.1rem;background:var(--text);color:var(--bg);border:none;border-radius:var(--radius-sm);font-size:.82rem;font-weight:600;cursor:pointer;font-family:var(--sans);transition:all .2s;text-decoration:none}
+    .nav-cta-btn:hover{background:var(--accent);color:#fff}
+    .nav-hamburger{display:none;width:40px;height:40px;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:10px;background:var(--bg-elevated);cursor:pointer;color:var(--text)}
 
-  <meta name="author" content="Dawood Wasif">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    /* PAGES */
+    .page{display:none}.page.active{display:block}
+    .page-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: calc(var(--nav-h) + 2.75rem) 2rem 4rem;
+    }
 
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 4rem;
+      align-items: center;
+      padding: calc(var(--nav-h) + 1.5rem) 2rem 3rem;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .hero-text h1 {
+      font-family: var(--serif);
+      font-size: 3.8rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -.04em;
+      margin-bottom: 0.5rem;
+    }
+    .hero-text h1 .dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: var(--orange);
+      border-radius: 50%;
+      margin-left: 4px;
+      position: relative;
+      top: -4px;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .hero-sub strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+    .hero-bio {
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 640px;
+      color: var(--text-secondary);
+    }
+    .hero-bio strong {
+      color: var(--text);
+    }
+    .hero-bio + .hero-bio {
+      margin-top: 1.2rem;
+    }
+    .hero-bio a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: var(--accent);
+      text-decoration-thickness: 1px;
+      font-weight: 500;
+    }
+    .hero-bio a:hover {
+      background: var(--accent-bg);
+      text-decoration-thickness: 2px;
+    }
+    .hero-seeking {
+      margin-top: 2rem;
+      padding: 1rem 1.25rem;
+      background: var(--green-bg);
+      border: 1px solid color-mix(in srgb, var(--green) 15%, transparent);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      color: var(--green);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .pulse-dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      background: var(--bg-elevated);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none !important;
+    }
+    .hero-link:hover {
+      border-color: var(--text);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .hero-link svg{width:18px;height:18px;flex-shrink:0}
+    .hero-photo {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-photo img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 24px;
+      aspect-ratio: 1/1.1;
+      object-fit: cover;
+      border: 4px solid var(--bg-elevated);
+      box-shadow: var(--shadow-md);
+      transition: transform 0.4s ease;
+    }
+    .hero-photo:hover img {
+      transform: scale(1.02);
+    }
+    .hero-photo-decor {
+      position: absolute;
+      inset: -15px -15px 15px 15px;
+      border: 2px solid var(--accent);
+      border-radius: 24px;
+      opacity: 0.15;
+      z-index: -1;
+    }
+
+    /* ABOUT LABEL */
+    .about-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* RESEARCH HIGHLIGHTS BAR */
+    .highlights-bar {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2rem 2rem 5rem;
+    }
+    .highlights-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .highlight-card {
+      padding: 2rem 1.5rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .highlight-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .hl-number {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .hl-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* NEWS */
+    .news-section{max-width:var(--max-w);margin:0 auto;padding:0 2rem 4rem}
+    .s-title{font-family:var(--serif);font-size:1.9rem;font-weight:600;letter-spacing:-.02em;margin-bottom:.3rem}
+    .s-sub{font-size:.88rem;color:var(--text-tertiary);margin-bottom:2rem}
+    .s-divider{height:1px;background:var(--border);margin-bottom:2rem}
+      .news-grid {
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+        max-height: 480px;
+        overflow-y: auto;
+        padding-right: 8px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--border) transparent;
+      }
+      .news-grid::-webkit-scrollbar {
+        width: 4px;
+      }
+      .news-grid::-webkit-scrollbar-thumb {
+        background-color: var(--border);
+        border-radius: 10px;
+      }
+    .news-entry{display:grid;grid-template-columns:110px 1fr;gap:1.5rem;padding:1.1rem 1.2rem;border-bottom:none;border-radius:var(--radius-sm);align-items:baseline;transition:all .2s;background:var(--bg-elevated);border:1px solid var(--border)}
+    .news-entry:hover{border-color:var(--accent);transform:translateX(4px);box-shadow:var(--shadow-sm)}
+    .news-date{font-family:var(--mono);font-size:.76rem;color:var(--text-tertiary);white-space:nowrap}
+    .news-text{font-size:.9rem;line-height:1.6}
+    .badge{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.03em;margin-right:.4rem;vertical-align:middle}
+    .badge-paper{background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent-border)}
+    .badge-talk{background:var(--orange-bg);color:var(--orange);border:1px solid color-mix(in srgb,var(--orange) 25%,transparent)}
+    .badge-award{background:#FEF3C7;color:#B45309;border:1px solid #FDE68A}
+    [data-theme="dark"] .badge-award{background:#2C2614;color:#F0963A;border-color:#3D3218}
+
+    /* PUBLICATIONS */
+    .pub-intro{font-size:.95rem;color:var(--text-secondary);max-width:700px;line-height:1.75;margin-bottom:2.5rem}
+    .pub-year-group{margin-bottom:3rem}
+    .pub-year-label{font-family:var(--mono);font-size:.78rem;font-weight:600;color:var(--text-tertiary);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.2rem;padding-bottom:.5rem;border-bottom:2px solid var(--border);display:inline-block}
+    .pub-list{display:flex;flex-direction:column;gap:1.5rem}
+    .pub-card{display:grid;grid-template-columns:220px 1fr;gap:2rem;padding:1.5rem 1.8rem;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius);transition:all .25s}
+    .pub-card:hover{border-color:var(--accent);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+    .pub-thumb{width:220px;height:140px;border-radius:var(--radius-sm);overflow:hidden;background:var(--bg-subtle);flex-shrink:0;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:5px}
+    .pub-thumb img{width:100%;height:100%;object-fit:contain;transition: transform 0.5s ease;}
+    .pub-card:hover .pub-thumb img{transform: scale(1.03);}
+    .pub-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.75rem;font-weight:600;color:var(--text-tertiary);background:linear-gradient(135deg,var(--bg-subtle),var(--bg-wash));text-transform:uppercase;letter-spacing:0.05em}
+    .pub-vb{display:inline-block;padding:.2rem .6rem;border-radius:5px;font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.04em;background:var(--accent);color:#fff;margin-bottom:.5rem}
+    .pub-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;line-height:1.4;margin-bottom:.35rem;color:var(--text)}
+    .pub-title a{color:var(--text);text-decoration:none}.pub-title a:hover{color:var(--accent)}
+    .pub-authors{font-size:.82rem;color:var(--text-secondary);line-height:1.5;margin-bottom:.4rem}
+    .pub-authors .me{font-weight:700;color:var(--text)}
+    .pub-desc{font-size:.84rem;color:var(--text-tertiary);line-height:1.6}
+    .pub-actions{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem}
+    .pub-action{padding:.25rem .65rem;border:1px solid var(--border);border-radius:6px;font-size:.74rem;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:all .2s;font-family:var(--sans)}
+    .pub-action:hover{border-color:var(--accent);color:var(--accent)}
+
+    /* CV */
+    .cv-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+    .cv-full{grid-column:1/-1}
+    .cv-section{margin-bottom:2.5rem}
+    .cv-st{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin-bottom:1.5rem;padding-bottom:.6rem;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:.6rem}
+    .cv-st svg{width:20px;height:20px;color:var(--accent)}
+    .exp-card{padding:1.3rem 0;border-bottom:1px solid var(--border)}.exp-card:last-child{border-bottom:none}
+    .exp-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.2rem;flex-wrap:wrap;gap:.5rem}
+    .exp-role{font-weight:600;font-size:.95rem}
+    .exp-dates{font-family:var(--mono);font-size:.76rem;color:var(--text-tertiary)}
+    .exp-org{font-size:.88rem;color:var(--accent);margin-bottom:.5rem}
+    .exp-desc{font-size:.85rem;color:var(--text-secondary);line-height:1.7}
+    .exp-desc li{margin-bottom:.4rem;padding-left:.2rem}
+    .edu-card{padding:1.2rem 1.4rem;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:1rem}
+    .edu-deg{font-weight:600;font-size:.95rem;margin-bottom:.15rem}
+    .edu-sch{color:var(--accent);font-size:.88rem;margin-bottom:.15rem}
+    .edu-meta{font-family:var(--mono);font-size:.76rem;color:var(--text-tertiary)}
+    .skills-row{margin-bottom:1.2rem}
+    .skills-label{font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .skills-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+    .skill-tag{padding:.3rem .65rem;background:var(--bg-subtle);border:1px solid var(--border);border-radius:6px;font-size:.78rem;color:var(--text-secondary);font-weight:500;transition:all .2s}
+    .skill-tag:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+    .cv-dl{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.4rem;background:var(--accent);color:#fff;border-radius:var(--radius-sm);font-weight:600;font-size:.88rem;text-decoration:none;transition:all .2s;margin-bottom:2rem}
+    .cv-dl:hover{background:var(--accent-hover);color:#fff;transform:translateY(-1px);box-shadow:var(--shadow-md)}
+    .cv-dl svg{width:16px;height:16px}
+
+    /* SERVICE */
+    .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+    .svc-block{margin-bottom:2rem}
+    .svc-bt{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+    .svc-bt svg{width:18px;height:18px;color:var(--accent)}
+    .svc-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+    .svc-item{font-size:.88rem;color:var(--text-secondary);padding:.6rem 1rem;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-sm);display:flex;align-items:center;gap:.6rem;transition:all .2s}
+    .svc-item:hover{border-color:var(--accent);transform:translateX(4px)}
+    .svc-item .sv{font-weight:600;color:var(--text)}
+    .svc-item .sy{font-family:var(--mono);font-size:.72rem;color:var(--text-tertiary);margin-left:auto}
+    .talk-card{padding:1.2rem 1.4rem;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.8rem;transition:all .25s}
+    .talk-card:hover{border-color:var(--accent);box-shadow:var(--shadow-sm)}
+    .talk-type{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-family:var(--mono);font-size:.68rem;font-weight:600;background:var(--orange-bg);color:var(--orange);margin-bottom:.5rem}
+    .talk-tt{font-weight:600;font-size:.95rem;margin-bottom:.25rem}
+    .talk-vt{font-size:.84rem;color:var(--text-secondary);line-height:1.5}
+    .talk-dt{font-family:var(--mono);font-size:.74rem;color:var(--text-tertiary);margin-top:.4rem}
+    .tch-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    .tch-card{padding:1rem 1.3rem;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-sm);transition:all .2s}
+    .tch-card:hover{border-color:var(--accent)}
+    .tch-code{font-family:var(--mono);font-size:.74rem;color:var(--accent);font-weight:600;margin-bottom:.2rem}
+    .tch-name{font-weight:600;font-size:.88rem;margin-bottom:.15rem}
+    .tch-role{font-size:.8rem;color:var(--text-tertiary)}
+    .award-card{padding:1rem 1.3rem;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:.6rem;display:flex;align-items:start;gap:.8rem}
+    .award-icon{font-size:1.3rem;flex-shrink:0;line-height:1;margin-top:2px}
+    .award-t{font-weight:600;font-size:.9rem}
+    .award-m{font-size:.82rem;color:var(--text-secondary)}
+
+    /* FOOTER */
+    .footer{max-width:var(--max-w);margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:.82rem;color:var(--text-tertiary)}
+    .footer a{color:var(--text-tertiary)}.footer a:hover{color:var(--accent)}
+    .footer-links{display:flex;gap:1.5rem}
+
+    /* ANIMATIONS */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .anim{animation:fadeIn .5s ease-out both}
+    .d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}
+
+    /* RESPONSIVE */
+    @media(max-width:860px){
+      .hero{grid-template-columns:1fr;gap:2rem}
+      .hero-photo{order:-1;max-width:220px}
+      .hero-text h1{font-size:2.4rem}
+      .pub-card{grid-template-columns:1fr}.pub-thumb{width:100%;height:140px}
+      .cv-grid,.svc-grid,.tch-grid{grid-template-columns:1fr}
+      .highlights-inner{grid-template-columns:repeat(2,1fr)}
+      .footer{flex-direction:column;gap:1rem;text-align:center}
+    }
+    @media(max-width:640px){
+      .nav-tabs{display:none}
+      .nav-hamburger{display:flex}
+      .nav-tabs.open{display:flex;flex-direction:column;position:absolute;top:var(--nav-h);left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:.8rem 1.5rem;gap:.3rem;box-shadow:var(--shadow-md)}
+      .nav-tabs.open .nav-tab{text-align:left;padding:.7rem .8rem}
+      .nav-cta-btn{display:none}
+      .hero{padding-top:calc(var(--nav-h)+1.5rem)}.hero-text h1{font-size:2rem}
+      .news-entry{grid-template-columns:1fr;gap:.3rem}
+      .exp-header{flex-direction:column;gap:.15rem}
+      .highlights-inner{grid-template-columns:1fr 1fr}
+    }
+  </style>
 </head>
-
 <body>
-  <table
-    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr style="padding:0px">
-                <td style="padding:2.5%;width:63%;vertical-align:middle">
-                  <p class="name" style="text-align: center;">
-                    Dawood Wasif
-                  </p>
-                  <p>
-                    I’m a second-year Ph.D. student in Computer Science at <a href="https://vt.edu/">Virginia Tech</a>,
-                    advised by <a href="https://sites.google.com/view/jinhee-cho/">Dr. Jin-Hee Cho</a> in the <a
-                      href="https://trustworthycyberspace.vt.edu/">Trustworthy Cyberspace Lab</a>. My research centers
-                    on responsible and secure AI, with a focus on <strong>federated learning</strong>,
-                    <strong>human-in-the-loop reinforcement learning</strong>, <strong>uncertainty-aware
-                      decision-making</strong>, and <strong>multi-agent LLM systems</strong>. I’m particularly
-                    interested in building scalable and trustworthy machine learning systems for real-world applications
-                    in <strong>autonomous vehicles</strong>, <strong>cloud infrastructure</strong>, and <strong>defense
-                      technologies</strong>.
-                  </p>
-                  <p> Before joining Virginia Tech, I was a Guest Scientist at the <a href="https://ai4eo.de/">Chair of
-                      Data Science in Earth Observation</a> at <a href="https://www.tum.de/en/">Technical University of
-                      Munich (TUM)</a>, where I worked on <strong>uncertainty quantification in remote sensing</strong>.
-                    I earned my Bachelor’s degree in Computer Science from the <a href="https://nust.edu.pk/">National
-                      University of Sciences and Technology (NUST)</a>, where I led <strong>AI-for-Social-Good
-                      initiatives</strong> across <strong>climate resilience</strong>, <strong>healthcare</strong>, and
-                    <strong>disaster response</strong>.
-                  </p>
 
-                  <p style="text-align:center">
-                    <span class="contact-links">
-                      <a href="mailto:dawoodwasif@vt.edu">Email</a>
-                      <a href="data/Dawood_Wasif_Resume_July_2025.pdf">CV</a>
-                      <a href="https://scholar.google.com/citations?user=IRzw11MAAAAJ&hl=en">Google Scholar</a>
-                      <a href="https://www.linkedin.com/in/dawood-wasif">LinkedIn</a>
-                      <a href="https://github.com/dawoodwasif/">Github</a>
-                    </span>
-                  </p>
-                </td>
-                <td style="padding:2.5%;width:40%;max-width:40%">
-                  <a href="images/DawoodWasif.png"><img style="width:100%;max-width:100%" alt="profile photo"
-                      src="images/DawoodWasif.png" class="hoverZoomLink"></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" onclick="go('home')">Dawood Wasif</a>
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-tabs').classList.toggle('open')" aria-label="Menu">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h16M3 10h16M3 15h16"/></svg>
+    </button>
+    <div class="nav-tabs" id="navTabs">
+      <button class="nav-tab active" data-page="home" onclick="go('home')">Home</button>
+      <button class="nav-tab" data-page="publications" onclick="go('publications')">Publications</button>
+      <button class="nav-tab" data-page="cv" onclick="go('cv')">CV</button>
+      <button class="nav-tab" data-page="service" onclick="go('service')">Service</button>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle dark mode">
+        <svg class="sun-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-i" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <a href="mailto:dawoodwasif@vt.edu" class="nav-cta-btn">Contact Me</a>
+    </div>
+  </div>
+</nav>
 
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <h2>News</h2>
-                  <ul style="list-style-type: none; padding-left: 0; line-height: 1.6;">
-                    <li class="news-item" style="border-left-color: #2196F3;">
-                      <strong style="color: #2196F3;">[Jul 2025]</strong> Our paper <strong>"Empirical Analysis of
-                        Privacy–Fairness–Accuracy Trade-offs in Federated Learning"</strong> is accepted to
-                      <strong>AAAI/ACM AIES 2025</strong>! 🏆
-                    </li>
+<!-- â•â•â•â•â•â•â•â•â•â• HOME â•â•â•â•â•â•â•â•â•â• -->
+<div class="page active" id="page-home">
+  <header class="hero">
+    <div class="hero-text anim">
+      <p class="about-label">About Me</p>
+      <h1>Dawood Wasif<span class="dot"></span></h1>
+      <p class="hero-sub">PhD Researcher at <strong>Virginia Tech</strong></p>
+      <p class="hero-bio">
+        I am a second-year Computer Science PhD student at <a href="https://vt.edu/">Virginia Tech</a>, working in the <a href="https://trustworthycyberspace.vt.edu/">Trustworthy Cyberspace Lab</a>. My research addresses a core challenge in modern machine learning: how to build systems that are simultaneously <strong>private, fair, and high-performing</strong> when deployed in safety-critical environments. I develop principled methods at the intersection of <strong>federated learning</strong>, <strong>human-in-the-loop reinforcement learning</strong>, and <strong>multi-agent LLM systems</strong>, focusing on the fundamental trade-offs between <strong>differential privacy, group/individual fairness, and model utility</strong>. On the applied side, I design and evaluate these frameworks in domains where failures carry real consequences: <strong>autonomous vehicles</strong>, <strong>UAV/UGV swarm coordination</strong>, and <strong>cloud infrastructure automation</strong>.
+      </p>
+      <p class="hero-bio">
+          I am advised by <a href="https://scholar.google.com/citations?hl=en&user=wToVkEUAAAAJ">Dr. Jin-Hee Cho</a> and have had the privilege of collaborating with outstanding researchers including <a href="https://scholar.google.com/citations?hl=en&user=TJI8JW0AAAAJ">Dr. Chang-Tien Lu</a>, <a href="https://scholar.google.com/citations?hl=en&user=LoXnMOIAAAAJ&view_op=list_works&sortby=pubdate">Dr. Chandan K. Reddy</a>, <a href="https://scholar.google.com/citations?hl=en&user=h5NDQRkAAAAJ">Dr. Yuanyuan Wang</a>, <a href="https://scholar.google.com/citations?hl=en&user=hjG6ebUAAAAJ&view_op=list_works&sortby=pubdate">Dr. Muhammad Shahzad</a>, and <a href="https://scholar.google.com/citations?hl=en&user=tpfgan0AAAAJ">Dr. Muhammad Moazam Fraz</a>, as well as researchers at the <strong>U.S. Army Research Laboratory (ARL)</strong>, including <a href="https://scholar.google.com/citations?hl=en&user=mTH2O1UAAAAJ">Dr. Terrence J. Moore</a> and <a href="https://www.researchgate.net/profile/Frederica-Nelson-3">Dr. Frederica F. Nelson</a>. My recent work has been accepted at top venues including <strong>ICML, ICLR, ACM FAccT, AAAI/ACM AIES, and USENIX VehicleSec</strong>. Beyond research, I completed my summer internship with <a href="https://www.idtech.com/hq-summer-camps">iD Tech @ Amazon HQ2 (Arlington)</a> in Summer 2025, and I will join <a href="https://careers.rivian.com/students">Rivian</a> in Summer 2026 as a <strong>Motor Controls Machine Learning Intern</strong>.
+      </p>
+      <p class="hero-bio">
+        Prior to Virginia Tech, I held a <strong>DAAD Research Fellowship</strong> at the <a href="https://www.tum.de/en/">Technical University of Munich (TUM)</a>, where I worked on uncertainty quantification for remote sensing under <a href="https://scholar.google.com/citations?user=CNakdIgAAAAJ&hl=en">Prof. Xiaoxiang Zhu</a>. I received my BS in Computer Science from <a href="https://nust.edu.pk/">NUST</a>, Pakistan.
+      </p>
+      
+      <div class="hero-links">
+        <a class="hero-link" href="mailto:dawoodwasif@vt.edu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>Email</a>
+        <a class="hero-link" href="data/Dawood_Wasif_Resume_July_2025.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>CV</a>
+        <a class="hero-link" href="https://scholar.google.com/citations?user=IRzw11MAAAAJ&hl=en"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/></svg>Scholar</a>
+        <a class="hero-link" href="https://github.com/dawoodwasif/"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.795 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+        <a class="hero-link" href="https://www.linkedin.com/in/dawood-wasif"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+      </div>
+    </div>
+    <div class="hero-photo anim d1">
+      <!-- PLACEHOLDER: Replace src with your photo path -->
+      <img src="images/dwasif.png" alt="Dawood Wasif">
+      <div class="hero-photo-decor"></div>
+    </div>
+  </header>
 
-                    <li class="news-item" style="border-left-color: #4CAF50;">
-                      <strong style="color: #4CAF50;">[Jun 2025]</strong> Preprint of <strong>"DriveMind: A Dual-VLM
-                        based Reinforcement Learning Framework for Autonomous Driving"</strong> is now available on <a
-                        href="https://arxiv.org/abs/2506.00819" target="_blank"
-                        style="color: #1976D2;">arXiv:2506.00819</a>.
-                    </li>
-
-                    <li class="news-item" style="border-left-color: #E91E63;">
-                      <strong style="color: #E91E63;">[May 2025]</strong> Joined <strong>iD Tech @ Amazon HQ
-                        (Arlington)</strong> as a <strong>Summer Instructor</strong> teaching Python, ML, and AI
-                      development to 100+ students.
-                    </li>
-
-                    <li class="news-item" style="border-left-color: #FF9800;">
-                      <strong style="color: #FF9800;">[Mar 2025]</strong> Released our new preprint <strong>"RESFL: An
-                        Uncertainty-Aware Framework for Responsible Federated Learning by Balancing Privacy, Fairness
-                        and Utility in Autonomous Vehicles"</strong> on <a href="https://arxiv.org/abs/2503.16251"
-                        target="_blank" style="color: #1976D2;">arXiv:2503.16251</a>.
-                    </li>
-
-                    <li class="news-item" style="border-left-color: #9C27B0;">
-                      <strong style="color: #9C27B0;">[Jan 2025]</strong> Our paper <strong>"Empirical Analysis of
-                        Privacy–Fairness–Accuracy Trade-offs in Federated Learning"</strong> is now publicly available
-                      on <a href="https://arxiv.org/abs/2503.16233" target="_blank"
-                        style="color: #1976D2;">arXiv:2503.16233</a>.
-                    </li>
-
-                    <li class="news-item" style="border-left-color: #607D8B;">
-                      <strong style="color: #607D8B;">[June 2024]</strong> Released our benchmark dataset paper
-                      <strong>"How Certain Are Uncertainty Estimates?"</strong> in collaboration with <a
-                        href="https://www.tum.de/en/" style="color: #1976D2;">TUM</a> and <a
-                        href="https://www.bristol.ac.uk/" style="color: #1976D2;">University of Bristol</a> — now on <a
-                        href="https://arxiv.org/abs/2412.06451" target="_blank"
-                        style="color: #1976D2;">arXiv:2412.06451</a>.
-                    </li>
-
-                    <li class="news-item" style="border-left-color: #795548;">
-                      <strong style="color: #795548;">[Jul 2023]</strong> Presented our work <strong>"Towards a
-                        Benchmark EO Dataset for Uncertainty Quantification"</strong> at <strong>IEEE IGARSS
-                        2023 in Pasadena, California, USA</strong>.
-                    </li>
-
-                    <li class="news-item" style="border-left-color: #009688;">
-                      <strong style="color: #009688;">[Dec 2022]</strong> Completed a <strong>DAAD Research
-                        Fellowship</strong> at <a href="https://www.tum.de/en/" style="color: #1976D2;">Technical
-                        University of Munich (TUM)</a> under the Chair of Data Science in Earth Observation.
-                    </li>
-
-                    <li class="news-item" style="border-left-color: #f662c7;">
-                      <strong style="color: #f662c7;">[Oct 2022]</strong> Presented our work <strong>"Extraction of Rice
-                        Phenological Metrics Using Multispectral Drone Imagery"</strong> at <strong>IEEE
-                        SITIS 2022</strong> in <strong>Dijon, France</strong>.
-                    </li>
-
-
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <h2>Selected Publications</h2>
-                  <p>
-                    I'm interested in computer vision, remote sensing, and uncertainty quantification. My research
-                    focuses on answering questions about why, what, and how using Explainable AI and effective
-                    Uncertainty Quantification tools.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-
-
-
-              <tr onmouseout="db3d_stop()" onmouseover="db3d_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <img src='images/FL-architecture.png' width="160">
-                  </div>
-                  <script type="text/javascript">
-                    function db3d_start() {
-                      document.getElementById('db3d_image').style.opacity = "1";
-                    }
-
-                    function db3d_stop() {
-                      document.getElementById('db3d_image').style.opacity = "0";
-                    }
-                    db3d_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://doi.org/10.1609/aies.v8i3.36746">
-                    <span class="papertitle">Empirical Analysis of Privacy-Fairness-Accuracy Trade-offs in Federated
-                      Learning: A Step Towards Responsible AI</span>
-                  </a>
-                  <br>
-
-                  <strong>Dawood Wasif</strong>,
-                  <a href="https://ieeexplore.ieee.org/author/37089982699">Dian Chen</a>,
-                  <a href="https://scholar.google.com/citations?user=VlN4J6QAAAAJ&hl=en">Sindhuja Madabushi</a>,
-                  <a href="https://www.linkedin.com/in/nithin-alluru">Nithin Alluru</a>,
-                  <a href="https://scholar.google.com/citations?user=mTH2O1UAAAAJ&hl=en">Terrence J Moore</a>
-                  <a href="https://scholar.google.com/citations?user=wToVkEUAAAAJ&hl=en">Jin-Hee Cho</a>
-
-                  <br>
-                  <em>AAAI/ACM AIES</em>, 2025
-                  <br>
-                  <p></p>
-                  <p>We highlight context-dependent trade-offs and offer guidelines for designing FL systems that uphold
-                    responsible AI principles, ensuring fairness, privacy, and equitable real-world applications.</p>
-                </td>
-              </tr>
-
-
-              <tr onmouseout="db3d_stop()" onmouseover="db3d_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <img src='images/berlin-city.jpg' width="160">
-                  </div>
-                  <script type="text/javascript">
-                    function db3d_start() {
-                      document.getElementById('db3d_image').style.opacity = "1";
-                    }
-
-                    function db3d_stop() {
-                      document.getElementById('db3d_image').style.opacity = "0";
-                    }
-                    db3d_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a
-                    href="https://2023.ieeeigarss.org/Papers/Uploads/FinalPapers/PaperNum/5157/20230531045405_551122_5157.pdf">
-                    <span class="papertitle">Towards a Benchmark EO Semantic Segmentation Dataset for Uncertainty
-                      Quantification</span>
-                  </a>
-                  <br>
-                  <strong>Dawood Wasif</strong>,
-                  <a href="https://scholar.google.de/citations?user=h5NDQRkAAAAJ&hl=en">Yuanyuan Wang</a>,
-                  <a href="https://dblp.org/pid/14/5514.html">Muhammad Shahzad</a>,
-                  <a href="https://scholar.google.com/citations?user=SuOUxjUAAAAJ&hl=en">Rudolph Triebel</a>,
-                  <a href="https://scholar.google.com/citations?user=CNakdIgAAAAJ&hl=en">Xiaoxiang Zhu</a>
-                  <br>
-                  <em>IGARSS</em>, 2023
-                  <br>
-                  <p></p>
-                  <p>We present a synthetic dataset rendered from 3D mesh and LoD2 models of Berlin, Germany and use it
-                    to compare baseline methods for semantic segmentation and uncertainty quantification.</p>
-                </td>
-              </tr>
-
-
-              <tr onmouseout="zipnerf_stop()" onmouseover="zipnerf_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-
-                    <img src='images/uav-mapping.jpg' width="160">
-                  </div>
-                  <script type="text/javascript">
-                    function zipnerf_start() {
-                      document.getElementById('zipnerf_image').style.opacity = "1";
-                    }
-
-                    function zipnerf_stop() {
-                      document.getElementById('zipnerf_image').style.opacity = "0";
-                    }
-                    zipnerf_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://ieeexplore.ieee.org/abstract/document/10090062">
-                    <span class="papertitle">Extraction of Rice Phenological Metrics Using Temporally Correlated
-                      Multispectral Drone Imagery</span>
-                  </a>
-                  <br>
-                  <strong>Dawood Wasif</strong>,
-                  <a href="https://scholar.google.com/citations?user=NQwneIIAAAAJ&hl=en">Muhammad Qasim Khan</a>,
-                  <a href="https://pk.linkedin.com/in/zshancs">Malik Zeeshan Ahmad</a>,
-                  <a href="https://pk.linkedin.com/in/rameesha-murtaza-831409245">Ramesha Murtaza</a>
-                  <a href="https://seecs.nust.edu.pk/faculty/zuhair-zafar/">Zuhair Zafar</a>,
-                  <a href="https://dblp.org/pid/14/5514.html">Muhammad Shahzad</a>,
-                  <a href="https://agrosy.informatik.uni-kl.de/en/staff/head-of-the-laboratory/seite">Karsten Berns</a>,
-                  <a href="https://seecs.nust.edu.pk/faculty/muhammad-moazam-fraz/">Muhammad Moazam Fraz</a>
-                  <br>
-                  <em>SITIS</em>, 2022 &nbsp <font color="red"></font>
-                  <br>
-                  <p></p>
-                  <p>
-                    We collected a novel multispectral dataset of rice crops to develop an automated statistical model
-                    of predicting the growth stages of various crops.
-                  </p>
-                </td>
-              </tr>
-
-
-            </tbody>
-          </table>
-
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td>
-                  <h2>Selected Projects</h2>
-                  <p>My projects revolve around state-of-the-art computer vision and natural language processing
-                    technologies. Explore them listed below:</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table width="100%" align="center" border="0" cellpadding="20">
-            <tbody>
-
-              <tr>
-                <td id="paper1" style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images\job-search.jpg" alt="b3do" width="160" style="border-style: none">
-                </td>
-                <td id=desc1 style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="http://aijobsearchagent.online/" <span class="papertitle">AI Job Search Agent</span>
-                  </a>
-                  <br>
-                  <strong>Dawood Wasif</strong>,
-                  <a href="https://www.linkedin.com/in/alexaggarwal">Alex Aggarwal</a>
-                  <br>
-                  July 2025
-                  <br>
-                  Developed an AI-powered job automation platform using FastAPI, GPT-4, and Pinecone for semantic job
-                  matching, ATS-optimized resume rewriting, and dynamic cover letter generation with full-stack
-                  integration via React and Supabase. </p>
-                </td>
-              </tr>
-      </tr>
-
-      <tr>
-        <td id="paper1" style="padding:20px;width:25%;vertical-align:middle">
-          <img src="images/chatbot.jpg" alt="bizflow" width="160" style="border-style: none">
-        </td>
-        <td id="desc2" style="padding:20px;width:75%;vertical-align:middle">
-          <a href="https://github.com/dawoodwasif/BizFlow-AI">
-            <span class="papertitle">BizFlow: Hybrid Workflow Assistant for Enterprise Ops</span>
-          </a>
-          <br>
-          <strong>Dawood Wasif</strong>
-          <br>
-          March 2025
-          <br>
-          Designed an enterprise-ready conversational assistant using <code>Rasa Pro</code> with hybrid transactional
-          and RAG-based flows, enabling real-time business process automation (e.g., IT tickets, HR queries, and expense
-          submissions).
-        </td>
-      </tr>
-
-
-      <tr>
-        <td id="paper1" style="padding:20px;width:25%;vertical-align:middle">
-          <img src="images\danger-zone.jpg" alt="b3do" width="160" style="border-style: none">
-        </td>
-        <td id=desc1 style="padding:20px;width:75%;vertical-align:middle">
-          <a href="https://github.com/dawoodwasif/Exclusion_Zone_Alert_System" <span class="papertitle">Real-time
-            Exclusion Zone Alert System</span>
-          </a>
-          <br>
-          <strong>Dawood Wasif</strong>
-          <br>
-          August 2023
-          <br>
-          Human detection and tracking using YOLOv8 and raising alerts and updating statistical reports on
-          entrance into a danger zone area drawn using a polygon selector GUI.
-          </p>
-        </td>
-      </tr>
-      </tr>
-
-
-      <!-- <tr>
-        <td id="paper1" style="padding:20px;width:25%;vertical-align:middle">
-          <img src="images\patents.jpeg" alt="b3do" width="160" style="border-style: none">
-        </td>
-        <td id=desc1 style="padding:20px;width:75%;vertical-align:middle">
-          <a href="https://github.com/dawoodwasif/Patent-Search-DC" <span class="papertitle">Distributed Semantic Search
-            over Index of U.S. Patents</span>
-          </a>
-          <br>
-          <strong>Dawood Wasif</strong>
-          <br>
-          May 2022
-          <br>
-          A broker-based architecture for a web application on which users can enter query and find similar patents from
-          database using TF-IDF as vector embeddings matrix and document retrieval with LSA and Cosine Similarity Search
-          </p>
-        </td>
-      </tr>
-      </tr> -->
-
-      <tr>
-        <td id="paper1" style="padding:20px;width:25%;vertical-align:middle">
-          <img src="images\vscode.png" alt="b3do" width="160" style="border-style: none">
-        </td>
-        <td id=desc1 style="padding:20px;width:75%;vertical-align:middle">
-          <a href="https://github.com/zShanCS/openai-autoflow" <span class="papertitle">VS Code Extension for
-            Development Workflow Automation</span>
-          </a>
-          <br>
-          <strong>Dawood Wasif</strong>,
-          <a href="https://scholar.google.com/citations?user=NQwneIIAAAAJ&hl=en">Muhammad Qasim Khan</a>,
-          <a href="https://pk.linkedin.com/in/zshancs">Malik Zeeshan Ahmad</a>
-          <br>
-          Jan 2022
-          <br>
-          VS Code extension that uses OpenAI Codex and other open source models to generate, autocomplete, and search
-          for source code, and provide documentation, and git commit messages
-          </p>
-        </td>
-      </tr>
-      </tr>
-
-      <tr>
-        <td id="paper1" style="padding:20px;width:25%;vertical-align:middle">
-          <img src="images\RIS.png" alt="b3do" width="160" style="border-style: none">
-        </td>
-        <td id=desc1 style="padding:20px;width:75%;vertical-align:middle">
-          <a href="https://github.com/QasimKhan5x/image-search-analysis" <span class="papertitle">Content Based Image
-            Retieval Search</span>
-          </a>
-          <br>
-          <strong>Dawood Wasif</strong>,
-          <a href="https://scholar.google.com/citations?user=NQwneIIAAAAJ&hl=en">Muhammad Qasim Khan</a>,
-          <a href="https://pk.linkedin.com/in/zshancs">Malik Zeeshan Ahmad</a>
-          <br>
-          May 2021
-          <br>
-          Reverse Image Search Tool based on metadata tags generated using hierarchical clasification and image features
-          using customized Efficientnet as a feature extractor and Milvus as a vector search database.
-          </p>
-        </td>
-      </tr>
-      </tr>
-
-    </tbody>
-  </table>
-
-  <div
-    style="text-align: center; padding: 10px; background-color: #f4f4f4; border-top: 2px solid #333; margin-top: 40px;">
-
-    <p style="font-size: 1.15em;">Thank you for visiting my site!</p>
-
-    <!-- <p>Inspired by <a href="https://github.com/jonbarron/website"
-        style="color: rgb(27, 31, 229); text-decoration: none;">Jon Barron</a></p> -->
-
+  <!-- Research Highlights -->
+  <div class="highlights-bar anim d2">
+    <div class="highlights-inner">
+      <div class="highlight-card">
+        <div class="hl-number">9+</div>
+        <div class="hl-label">Publications</div>
+      </div>
+      <div class="highlight-card">
+        <div class="hl-number">4</div>
+        <div class="hl-label">Top-Tier Venues</div>
+      </div>
+      <div class="highlight-card">
+        <div class="hl-number">4</div>
+        <div class="hl-label">Invited Talks</div>
+      </div>
+      <div class="highlight-card">
+        <div class="hl-number">6+</div>
+        <div class="hl-label">Reviewer Roles</div>
+      </div>
+    </div>
   </div>
 
+<section class="news-section anim d3">
+  <h2 class="s-title">Latest News</h2>
+  <p class="s-sub">Recent papers, talks, publications, and research milestones</p>
+  <div class="s-divider"></div>
+  <div class="news-grid">
+    <div class="news-entry">
+      <span class="news-date">Apr 2026</span>
+      <div class="news-text">
+        <span class="badge badge-paper">PAPER</span>
+        Two papers were accepted at <strong>USENIX VehicleSec 2026</strong>: <strong>"SHIELD: Secure Human-Machine Interaction with Evidential Learning and Dynamic Trust for Drone Swarm Control"</strong> and <strong>"Risk-Aware Human-in-the-Loop Framework with Adaptive Intrusion Response for Autonomous Vehicles"</strong>.
+      </div>
+    </div>
+
+    <div class="news-entry">
+      <span class="news-date">Mar 2026</span>
+      <div class="news-text">
+        <span class="badge badge-talk">TALK</span>
+        Delivered a research talk at <strong>ACM CAPWIC 2026</strong> on responsible AI and trustworthy machine learning systems at <strong>Virginia Tech, Innovation Campus</strong> in Alexandria, Virginia.
+      </div>
+    </div>
+
+    <div class="news-entry">
+      <span class="news-date">Feb 2026</span>
+      <div class="news-text">
+        <span class="badge badge-paper">PAPER</span>
+        <strong>"RESFL: An Uncertainty-Aware Framework for Responsible Federated Learning by Balancing Privacy, Fairness and Utility"</strong> was accepted at <strong>ICLR 2026</strong>.
+      </div>
+    </div>
+
+    <div class="news-entry">
+      <span class="news-date">Jan 2026</span>
+      <div class="news-text">
+        <span class="badge badge-talk">TALK</span>
+        Delivered an invited talk on <strong>"Human-in-the-Loop for Shared and Secure Autonomy"</strong> at the <strong>U.S. Army Research Laboratory</strong> in Adelphi, Maryland.
+      </div>
+    </div>
+
+    <div class="news-entry">
+      <span class="news-date">Oct 2025</span>
+      <div class="news-text">
+        <span class="badge badge-paper">PAPER</span>
+        Presented <strong>"Empirical Analysis of Privacy-Fairness-Accuracy Trade-offs in Federated Learning"</strong> at <strong>AAAI/ACM AIES 2025</strong> in Madrid, Spain.
+      </div>
+    </div>
+
+    <div class="news-entry">
+      <span class="news-date">Sep 2025</span>
+      <div class="news-text">
+        <span class="badge badge-talk">TALK</span>
+        Presented a research talk on <strong>"Towards Trustworthy AVs: Semantic-Guided and Risk-Aware Learning"</strong> at the <strong>NSF AI Awareness Workshop</strong> at Virginia Tech.
+      </div>
+    </div>
+
+    <div class="news-entry">
+      <span class="news-date">Jul 2025</span>
+      <div class="news-text">
+        <span class="badge badge-paper">PAPER</span>
+        <strong>"Empirical Analysis of Privacy-Fairness-Accuracy Trade-offs in Federated Learning"</strong> was accepted at <strong>AAAI/ACM AIES 2025</strong>.
+      </div>
+    </div>
+
+    <div class="news-entry">
+      <span class="news-date">Jun 2024</span>
+      <div class="news-text">
+        <span class="badge badge-paper">PAPER</span>
+        Released <strong>"How Certain Are Uncertainty Estimates? A Benchmark and New Evaluation Framework for Earth Observation Semantic Segmentation"</strong> in collaboration with <strong>Technical University of Munich</strong> and the <strong>University of Bristol</strong>, now available on <a href="https://arxiv.org/abs/2412.06451">arXiv</a>.
+      </div>
+    </div>
+
+    <div class="news-entry">
+      <span class="news-date">Jul 2023</span>
+      <div class="news-text">
+        <span class="badge badge-talk">TALK</span>
+        Presented <strong>"Towards a Benchmark EO Semantic Segmentation Dataset for Uncertainty Quantification"</strong> at <strong>IEEE IGARSS 2023</strong> in Pasadena, California, USA.
+      </div>
+    </div>
+
+    <div class="news-entry">
+      <span class="news-date">Dec 2022</span>
+      <div class="news-text">
+        <span class="badge badge-award">MILESTONE</span>
+        Completed a <strong>DAAD Research Fellowship</strong> at the <strong>Technical University of Munich (TUM)</strong> under the Chair of Data Science in Earth Observation.
+      </div>
+    </div>
+
+    <div class="news-entry">
+      <span class="news-date">Oct 2022</span>
+      <div class="news-text">
+        <span class="badge badge-talk">TALK</span>
+        Presented <strong>"Extraction of Rice Phenological Metrics Using Temporally Correlated Multispectral Drone Imagery"</strong> at <strong>IEEE SITIS 2022</strong> in Dijon, France.
+      </div>
+    </div>
+  </div>
+</section>
+</div>
 
 
+<div class="page" id="page-publications">
+  <div class="page-wrap">
+    <h2 class="s-title anim">Publications</h2>
+    <p class="pub-intro anim d1">My research investigates how to build ML systems that are simultaneously private, fair, and performant. I focus on federated learning, human-in-the-loop RL, and multi-agent architectures, with deployments in autonomous driving, drone swarms, and cloud infrastructure.</p>
+
+    <div class="pub-year-group anim d2">
+      <div class="pub-year-label">2026</div>
+      <div class="pub-list">
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="images/xfedalign_fig.png" alt="XFL Architecture"></div>
+          <div>
+            <span class="pub-vb">ICML 2026</span>
+            <div class="pub-title">
+              <a href="#">Explainable Federated Learning via Global-Local Attribution Alignment</a>
+            </div>
+            <div class="pub-authors">
+              <a href="https://scholar.google.com/citations?hl=en&user=IRzw11MAAAAJ"><span class="me">Dawood Wasif</span></a>,
+              <a href="https://scholar.google.com/citations?hl=en&user=mTH2O1UAAAAJ">Terrence J. Moore</a>,
+              <a href="https://website.cs.vt.edu/people/faculty/chang-tien-lu.html">Chang-Tien Lu</a>,
+              <a href="https://website.cs.vt.edu/people/faculty/jin-hee-cho.html">Jin-Hee Cho</a>
+            </div>
+            <div class="pub-desc">Aligning global and local attribution maps for interpretable federated models without compromising privacy or utility.</div>
+            <div class="pub-actions"><a class="pub-action" href="#">Paper</a><a class="pub-action" href="#">Code</a></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="images/resfl_fig.png" alt="RESFL Framework"></div>
+          <div>
+            <span class="pub-vb">ICLR 2026</span>
+            <div class="pub-title">
+              <a href="https://arxiv.org/abs/2503.16251">RESFL: An Uncertainty-Aware Framework for Responsible Federated Learning by Balancing Privacy, Fairness and Utility</a>
+            </div>
+            <div class="pub-authors">
+              <a href="https://scholar.google.com/citations?hl=en&user=IRzw11MAAAAJ"><span class="me">Dawood Wasif</span></a>,
+              <a href="https://scholar.google.com/citations?hl=en&user=mTH2O1UAAAAJ">Terrence J. Moore</a>,
+              <a href="https://website.cs.vt.edu/people/faculty/jin-hee-cho.html">Jin-Hee Cho</a>
+            </div>
+            <div class="pub-desc">Jointly optimizing privacy, fairness, and accuracy in federated settings for autonomous vehicles using uncertainty-driven objectives.</div>
+            <div class="pub-actions"><a class="pub-action" href="https://arxiv.org/abs/2503.16251">arXiv</a><a class="pub-action" href="#">Code</a></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="images/scc_fig.png" alt="Fairness FL"></div>
+          <div>
+            <span class="pub-vb">ACM FAccT 2026</span>
+            <div class="pub-title">
+              <a href="#">Toward Individual Fairness Without Centralized Data: Selective Counterfactual Consistency for Vertical Federated Learning</a>
+            </div>
+            <div class="pub-authors">
+              <a href="https://scholar.google.com/citations?hl=en&user=IRzw11MAAAAJ"><span class="me">Dawood Wasif</span></a>,
+              <a href="https://creddy.net/">Chandan K. Reddy</a>,
+              <a href="https://scholar.google.com/citations?hl=en&user=mTH2O1UAAAAJ">Terrence J. Moore</a>,
+              <a href="https://website.cs.vt.edu/people/faculty/jin-hee-cho.html">Jin-Hee Cho</a>
+            </div>
+            <div class="pub-desc">Counterfactual-based individual fairness enforcement in vertical FL without centralized access to sensitive features.</div>
+            <div class="pub-actions"><a class="pub-action" href="#">Paper</a></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="images/shield_fig.png" alt="SHIELD Framework"></div>
+          <div>
+            <span class="pub-vb">USENIX VehicleSec 2026</span>
+            <div class="pub-title">
+              <a href="#">SHIELD: Secure Human-Machine Interaction with Evidential Learning and Dynamic Trust for Drone Swarm Control</a>
+            </div>
+            <div class="pub-authors">
+              <a href="https://scholar.google.com/citations?hl=en&user=IRzw11MAAAAJ"><span class="me">Dawood Wasif</span></a>,
+              <a href="https://scholar.google.com/citations?hl=en&user=mTH2O1UAAAAJ">Terrence J. Moore</a>,
+              <a href="https://sites.google.com/kentech.ac.kr/seunghyunyoon/">Seunghyun Yoon</a>,
+              <a href="https://hlim.kentech.ac.kr/wiki/pmwiki.php?n=People.HyukLim">Hyuk Lim</a>,
+              <a href="https://www.cyber.uq.edu.au/research-topics/autonomous-vehicle-security">Dan Kim</a>,
+              <a href="https://sciprofiles.com/profile/3224404">Frederica F. Nelson</a>,
+              <a href="https://website.cs.vt.edu/people/faculty/jin-hee-cho.html">Jin-Hee Cho</a>
+            </div>
+            <div class="pub-desc">Trust-calibrated human-machine teaming in multi-drone operations via evidential deep learning.</div>
+            <div class="pub-actions"><a class="pub-action" href="#">Paper</a></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="images/rail_fig.png" alt="Risk-Aware Framework"></div>
+          <div>
+            <span class="pub-vb">USENIX VehicleSec 2026</span>
+            <div class="pub-title">
+              <a href="#">Risk-Aware Human-in-the-Loop Framework with Adaptive Intrusion Response for Autonomous Vehicles</a>
+            </div>
+            <div class="pub-authors">
+              <a href="https://scholar.google.com/citations?hl=en&user=IRzw11MAAAAJ"><span class="me">Dawood Wasif</span></a>,
+              <a href="https://scholar.google.com/citations?hl=en&user=mTH2O1UAAAAJ">Terrence J. Moore</a>,
+              <a href="https://sites.google.com/kentech.ac.kr/seunghyunyoon/">Seunghyun Yoon</a>,
+              <a href="https://hlim.kentech.ac.kr/wiki/pmwiki.php?n=People.HyukLim">Hyuk Lim</a>,
+              <a href="https://www.cyber.uq.edu.au/research-topics/autonomous-vehicle-security">Dan Kim</a>,
+              <a href="https://sciprofiles.com/profile/3224404">Frederica F. Nelson</a>,
+              <a href="https://website.cs.vt.edu/people/faculty/jin-hee-cho.html">Jin-Hee Cho</a>
+            </div>
+            <div class="pub-desc">Dynamic autonomy adjustment based on threat assessment and driver trust in AV scenarios.</div>
+            <div class="pub-actions"><a class="pub-action" href="#">Paper</a></div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="images/iac_fig.png" alt="IaC Generation"></div>
+          <div>
+            <span class="pub-vb">CLOUD COMPUTING 2026</span>
+            <div class="pub-title">
+              <a href="#">Multi-Agent Code-Orchestrated Generation for Reliable Infrastructure-as-Code</a>
+            </div>
+            <div class="pub-authors">
+              <a href="https://scholar.google.com/citations?hl=en&user=aZeGUTwAAAAJ">Rana Nameer Hussain Khan</a>,
+              <a href="https://scholar.google.com/citations?hl=en&user=IRzw11MAAAAJ"><span class="me">Dawood Wasif</span></a>,
+              <a href="https://website.cs.vt.edu/people/faculty/jin-hee-cho.html">Jin-Hee Cho</a>,
+              <a href="https://website.cs.vt.edu/people/faculty/ali-butt.html">Ali R. Butt</a>
+            </div>
+            <div class="pub-desc">Automated, policy-compliant IaC generation with self-verification via multi-agent LLM pipelines.</div>
+            <div class="pub-actions"><a class="pub-action" href="#">Paper</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="pub-year-group">
+      <div class="pub-year-label">2025</div>
+      <div class="pub-list">
+        <div class="pub-card"><div class="pub-thumb"><img src="images/aies_fig.png" alt="FL Architecture"></div><div><span class="pub-vb">AAAI/ACM AIES 2025</span><div class="pub-title"><a href="https://doi.org/10.1609/aies.v8i3.36746">Empirical Analysis of Privacy-Fairness-Accuracy Trade-offs in Federated Learning</a></div><div class="pub-authors"><span class="me">Dawood Wasif</span>, <a href="https://ieeexplore.ieee.org/author/37089982699">Dian Chen</a>, <a href="https://scholar.google.com/citations?user=VlN4J6QAAAAJ&hl=en">Sindhuja Madabushi</a>, <a href="https://www.linkedin.com/in/nithin-alluru">Nithin Alluru</a>, <a href="https://scholar.google.com/citations?user=mTH2O1UAAAAJ&hl=en">Terrence J. Moore</a>, <a href="https://scholar.google.com/citations?user=wToVkEUAAAAJ&hl=en">Jin-Hee Cho</a></div><div class="pub-desc">Systematic study of context-dependent privacy-fairness-accuracy trade-offs in federated learning systems.</div><div class="pub-actions"><a class="pub-action" href="https://doi.org/10.1609/aies.v8i3.36746">Paper</a><a class="pub-action" href="https://arxiv.org/abs/2503.16233">arXiv</a></div></div></div>
+      </div>
+    </div>
+
+    <div class="pub-year-group">
+      <div class="pub-year-label">2023</div>
+      <div class="pub-list">
+        <div class="pub-card"><div class="pub-thumb"><img src="images/blc_fig.png" alt="Berlin dataset"></div><div><span class="pub-vb">IEEE IGARSS 2023</span><div class="pub-title"><a href="https://2023.ieeeigarss.org/Papers/Uploads/FinalPapers/PaperNum/5157/20230531045405_551122_5157.pdf">Towards a Benchmark EO Semantic Segmentation Dataset for Uncertainty Quantification</a></div><div class="pub-authors"><span class="me">Dawood Wasif</span>, <a href="https://scholar.google.de/citations?user=h5NDQRkAAAAJ&hl=en">Yuanyuan Wang</a>, <a href="https://dblp.org/pid/14/5514.html">Muhammad Shahzad</a>, <a href="https://scholar.google.com/citations?user=SuOUxjUAAAAJ&hl=en">Rudolph Triebel</a>, <a href="https://scholar.google.com/citations?user=CNakdIgAAAAJ&hl=en">Xiaoxiang Zhu</a></div><div class="pub-desc">Synthetic dataset from 3D mesh models for benchmarking semantic segmentation and uncertainty quantification.</div><div class="pub-actions"><a class="pub-action" href="https://2023.ieeeigarss.org/Papers/Uploads/FinalPapers/PaperNum/5157/20230531045405_551122_5157.pdf">Paper</a></div></div></div>
+      </div>
+    </div>
+
+    <div class="pub-year-group">
+      <div class="pub-year-label">2022</div>
+      <div class="pub-list">
+        <div class="pub-card"><div class="pub-thumb"><img src="images/rice_fig.png" alt="UAV mapping"></div><div><span class="pub-vb">IEEE SITIS 2022</span><div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10090062">Extraction of Rice Phenological Metrics Using Temporally Correlated Multispectral Drone Imagery</a></div><div class="pub-authors"><span class="me">Dawood Wasif</span>, <a href="https://scholar.google.com/citations?user=NQwneIIAAAAJ&hl=en">Muhammad Qasim Khan</a>, <a href="https://pk.linkedin.com/in/zshancs">Malik Zeeshan Ahmad</a>, Ramesha Murtaza, Zuhair Zafar, Muhammad Shahzad, Karsten Berns, Muhammad Moazam Fraz</div><div class="pub-desc">Novel multispectral dataset for automated rice crop growth stage prediction using drone imagery.</div><div class="pub-actions"><a class="pub-action" href="https://ieeexplore.ieee.org/abstract/document/10090062">Paper</a></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- â•â•â•â•â•â•â•â•â•â• CV â•â•â•â•â•â•â•â•â•â• -->
+<div class="page" id="page-cv">
+  <div class="page-wrap">
+    <h2 class="s-title anim">Curriculum Vitae</h2>
+    <div class="s-divider" style="margin-top:.5rem"></div>
+    <a class="cv-dl anim d1" href="data/Dawood_Wasif_April_Resume.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Full CV (PDF)</a>
+
+    <div class="cv-grid">
+      <div class="cv-section">
+        <div class="cv-st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5"/></svg>Education</div>
+        <div class="edu-card"><div class="edu-deg">PhD in Computer Science</div><div class="edu-sch">Virginia Polytechnic Institute and State University</div><div class="edu-meta">Aug 2024 - May 2027 (expected) · GPA: 4.00/4.00</div></div>
+        <div class="edu-card"><div class="edu-deg">BS in Computer Science</div><div class="edu-sch">National University of Sciences and Technology (NUST)</div><div class="edu-meta">Aug 2019 - May 2023 · GPA: 3.81/4.00</div></div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Technical Skills</div>
+        <div class="skills-row"><div class="skills-label">Languages</div><div class="skills-tags"><span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">C/C++</span><span class="skill-tag">Rust</span><span class="skill-tag">Go</span><span class="skill-tag">R</span><span class="skill-tag">Scala</span><span class="skill-tag">SQL</span><span class="skill-tag">TypeScript</span></div></div>
+        <div class="skills-row"><div class="skills-label">ML / DL</div><div class="skills-tags"><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">JAX</span><span class="skill-tag">Hugging Face</span><span class="skill-tag">TensorRT</span><span class="skill-tag">Scikit-learn</span></div></div>
+        <div class="skills-row"><div class="skills-label">LLM / AI</div><div class="skills-tags"><span class="skill-tag">LangChain</span><span class="skill-tag">DSPy</span><span class="skill-tag">RLHF</span><span class="skill-tag">FAISS</span><span class="skill-tag">Pinecone</span><span class="skill-tag">MLflow</span><span class="skill-tag">Knowledge Graphs</span></div></div>
+        <div class="skills-row"><div class="skills-label">Cloud / Infra</div><div class="skills-tags"><span class="skill-tag">AWS</span><span class="skill-tag">GCP</span><span class="skill-tag">Azure</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">Docker</span><span class="skill-tag">Spark</span><span class="skill-tag">Ray</span><span class="skill-tag">SLURM</span></div></div>
+      </div>
+
+      <div class="cv-section cv-full">
+        <div class="cv-st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>Experience</div>
+
+        <div class="exp-card"><div class="exp-header"><span class="exp-role">Graduate Research Assistant</span><span class="exp-dates">Aug 2024 - Present</span></div><div class="exp-org">Trustworthy Cyberspace Lab (tClab), Virginia Tech , Arlington, VA</div><div class="exp-desc"><ul><li>Designed human-in-the-loop RL coordination strategies for Connected Autonomous Vehicle defense, achieving over 25% efficiency gains in adversarial traffic simulations.</li><li>Collaborating with U.S. Army Research Laboratory on robust UAV/UGV teaming, improving resilience to sensor and communication perturbations by up to 80%.</li><li>Led research on privacy-fairness trade-offs in Federated Learning across various domains.</li></ul></div></div>
+
+        <div class="exp-card"><div class="exp-header"><span class="exp-role">Research Scientist (Collaborator)</span><span class="exp-dates">Aug 2025 - Present</span></div><div class="exp-org">Crowdception Inc. , Washington, D.C.</div><div class="exp-desc"><ul><li>Designed cross-platform XR clinical-intelligence stack achieving 95%+ object detection accuracy on Meta Quest and RayNeo.</li><li>Architected multi-agent biomedical LLM+VLM workflow for drug discovery on 10k+ compound-target pairs.</li></ul></div></div>
+
+        <div class="exp-card"><div class="exp-header"><span class="exp-role">Machine Learning Engineer</span><span class="exp-dates">Jul 2023 - Aug 2024</span></div><div class="exp-org">DCube Tech , Seattle, WA</div><div class="exp-desc"><ul><li>Implemented scalable LLM inference optimization (quantization + LoRA), achieving 45% lower latency and 25% compute cost reduction.</li><li>Engineered spatiotemporal action detection on warehouse footage, cutting errors by 23% and saving ~$300K annually.</li><li>Designed multi-agent LLM architectures for enterprise automation, increasing workflow efficiency by 35%.</li></ul></div></div>
+
+        <div class="exp-card"><div class="exp-header"><span class="exp-role">DAAD Research Fellow</span><span class="exp-dates">Jun - Dec 2022</span></div><div class="exp-org">Technical University of Munich (TUM) , Munich, Germany</div><div class="exp-desc"><ul><li>Uncertainty quantification in remote sensing at the Chair of Data Science in Earth Observation under Prof. Xiaoxiang Zhu.</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- â•â•â•â•â•â•â•â•â•â• SERVICE â•â•â•â•â•â•â•â•â•â• -->
+<div class="page" id="page-service">
+  <div class="page-wrap">
+    <h2 class="s-title anim">Academic Service</h2>
+    <div class="s-divider" style="margin-top:.5rem"></div>
+
+    <div class="svc-grid anim d1">
+      <div class="svc-block">
+        <div class="svc-bt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Conference Reviewer</div>
+        <ul class="svc-list">
+          <li class="svc-item"><span class="sv">NeurIPS</span><span class="sy">2026</span></li>
+          <li class="svc-item"><span class="sv">ICML</span><span class="sy">2026</span></li>
+          <li class="svc-item"><span class="sv">ICRA</span><span class="sy">2026</span></li>
+          <li class="svc-item"><span class="sv">IROS</span><span class="sy">2026</span></li>
+          <li class="svc-item"><span class="sv">ICDM</span><span class="sy">2026</span></li>
+          <li class="svc-item"><span class="sv">IEEE BigData</span><span class="sy">2025</span></li>
+        </ul>
+      </div>
+      <div class="svc-block">
+        <div class="svc-bt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Awards &amp; Honors</div>
+        <div class="award-card"><span class="award-icon">🎓</span><div><div class="award-t">DAAD Research Fellowship</div><div class="award-m">Technical University of Munich · 2022</div></div></div>
+        <div class="award-card"><span class="award-icon">🏆</span><div><div class="award-t">Best Green Tech Hack</div><div class="award-m">MakeUC Hackathon, IEEE @ University of Cincinnati · 2024</div></div></div>
+        <div class="award-card"><span class="award-icon">🌟</span><div><div class="award-t">3rd Place Overall &amp; Crowd Favorite</div><div class="award-m">DevRev AI Hackathon by Microsoft · 2022</div></div></div>
+      </div>
+    </div>
+
+    <div class="svc-block anim d2" style="margin-top:1rem">
+      <div class="svc-bt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>Talks &amp; Presentations</div>
+      <div class="talk-card"><span class="talk-type">INVITED TALK</span><div class="talk-tt">Human-in-the-Loop for Shared and Secure Autonomy</div><div class="talk-vt">UxS and Data Technical Exchange Meeting, U.S. Army Research Laboratory, Adelphi, MD</div><div class="talk-dt">January 22, 2026</div></div>
+      <div class="talk-card"><span class="talk-type">RESEARCH TALK</span><div class="talk-tt">RESFL: Uncertainty-Aware Responsible Federated Learning</div><div class="talk-vt">ACM CAPWIC 2026, Virginia Tech IAC, Alexandria, VA</div><div class="talk-dt">March 28, 2026</div></div>
+      <div class="talk-card"><span class="talk-type">POSTER</span><div class="talk-tt">Privacy-Fairness-Accuracy Trade-offs in Federated Learning</div><div class="talk-vt">AAAI/ACM AIES 2025, IE University Tower, Madrid, Spain</div><div class="talk-dt">October 22, 2025</div></div>
+      <div class="talk-card"><span class="talk-type">RESEARCH TALK</span><div class="talk-tt">Towards Trustworthy AVs: Semantic-Guided and Risk-Aware Learning</div><div class="talk-vt">NSF AI Awareness Workshop 2025, Virginia Tech Research Center, Arlington, VA</div><div class="talk-dt">September 17, 2025</div></div>
+    </div>
+
+    <div class="svc-block anim d2" style="margin-top:1rem">
+      <div class="svc-bt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>Teaching</div>
+      <div class="tch-grid">
+        <div class="tch-card"><div class="tch-code">CS 2506</div><div class="tch-name">Computer Organization</div><div class="tch-role">Graduate TA , Virginia Tech</div></div>
+        <div class="tch-card"><div class="tch-code">CS 5024</div><div class="tch-name">Ethics &amp; Professionalism in CS</div><div class="tch-role">Graduate TA , Virginia Tech</div></div>
+        <div class="tch-card"><div class="tch-code">CS 5614</div><div class="tch-name">Database Management Systems</div><div class="tch-role">Graduate TA , Virginia Tech</div></div>
+        <div class="tch-card"><div class="tch-code">Summer Camps</div><div class="tch-name">Python, AI &amp; ML Instruction</div><div class="tch-role">iD Tech , Amazon HQ, GMU, Marymount</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span>&copy; 2026 Dawood Wasif · Virginia Tech</span>
+  <div class="footer-links">
+    <a href="mailto:dawoodwasif@vt.edu">dawoodwasif@vt.edu</a>
+    <a href="https://scholar.google.com/citations?user=IRzw11MAAAAJ&hl=en">Google Scholar</a>
+    <a href="https://github.com/dawoodwasif/">GitHub</a>
+  </div>
+</footer>
+
+<script>
+function go(p){
+  document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
+  var t=document.getElementById('page-'+p);if(t)t.classList.add('active');
+  document.querySelectorAll('.nav-tab').forEach(e=>e.classList.remove('active'));
+  var a=document.querySelector('.nav-tab[data-page="'+p+'"]');if(a)a.classList.add('active');
+  document.querySelector('.nav-tabs').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(t)t.querySelectorAll('.anim').forEach(function(el){el.style.animation='none';el.offsetHeight;el.style.animation='';});
+}
+function toggleTheme(){
+  var h=document.documentElement,d=h.getAttribute('data-theme')==='dark';
+  if(d){h.removeAttribute('data-theme');localStorage.setItem('theme','light')}
+  else{h.setAttribute('data-theme','dark');localStorage.setItem('theme','dark')}
+  upIcon();
+}
+function upIcon(){
+  var d=document.documentElement.getAttribute('data-theme')==='dark';
+  document.querySelector('.sun-i').style.display=d?'none':'block';
+  document.querySelector('.moon-i').style.display=d?'block':'none';
+}
+(function(){
+  var s=localStorage.getItem('theme');
+  if(s==='dark')document.documentElement.setAttribute('data-theme','dark');
+  document.addEventListener('DOMContentLoaded',upIcon);
+})();
+</script>
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
